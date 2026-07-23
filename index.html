@@ -14,6 +14,40 @@
 </head>
 
 <body>
+    <!-- System Error Preloader -->
+    <div class="system-preloader">
+        <div class="boot-screen">
+            <button class="btn-boot">[ INIT_SYSTEM ]</button>
+        </div>
+
+        <div class="profile-glitch-container" style="display: none;">
+            <img src="assets/Anon.jpg" class="profile-glitch-img" alt="System Error">
+        </div>
+
+        <div class="preloader-content" style="opacity: 0;">
+            <div class="terminal-text">
+                <p class="console-line">DimasOS.init() // v2.0.4</p>
+                <p class="console-line">LOADING ASSETS...</p>
+                <p class="console-line error-text">ERROR: UNAUTHORIZED OVERRIDE DETECTED</p>
+                <p class="console-line">BYPASSING FIREWALL... [SUCCESS]</p>
+                <p class="console-line">PREPARING PORTFOLIO INTERFACE...</p>
+            </div>
+            <div class="loading-wrapper">
+                <div class="loading-bar-container">
+                    <div class="loading-bar"></div>
+                </div>
+                <div class="loading-percentage">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Page Transition Overlay -->
+    <div class="page-transition">
+        <!-- Kanvas untuk efek hujan biner Matrix -->
+        <canvas id="binary-canvas"></canvas>
+        <div class="final-error-text">ERROR</div>
+    </div>
+
     <header class="header">
         <div class="header-left">
             <span class="header-title">WEB DEVELOPMENT</span><br>
@@ -45,7 +79,7 @@
                 </div>
 
                 <div class="hero-image-wrapper">
-                    <img id="profile-img" src="assets/profile.png" alt="Dimas Ayyub Alghafiqi">
+                    <img id="profile-img" src="assets/dimas.jpeg" alt="Dimas Ayyub Alghafiqi">
                 </div>
 
                 <div class="hero-right">
@@ -80,13 +114,13 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img-wrapper">
-                        <img src="assets/project-bike.png" alt="Veloce Bikes">
+                        <img src="assets/website.png" alt="Veloce Bikes">
                     </div>
                     <div class="project-footer">
                         <div class="project-number">01</div>
                         <div class="project-info">
-                            <h3>VELOCE BIKES</h3>
-                            <p>E-COMMERCE WEBSITE</p>
+                            <h3>UPDATE FITUR WEBSITE PERUSAHAAN WEDDING CONTENT CREATOR</h3>
+                            <p>WEBSITE DEVELOPMENT</p>
                         </div>
                         <div class="project-arrow">→</div>
                     </div>
@@ -106,13 +140,13 @@
                 </div>
                 <div class="project-card">
                     <div class="project-img-wrapper">
-                        <img src="assets/project-fashion.png" alt="Imbana">
+                        <img src="assets/ui_ux.png" alt="Imbana">
                     </div>
                     <div class="project-footer">
                         <div class="project-number">03</div>
                         <div class="project-info">
-                            <h3>URBANIC</h3>
-                            <p>FASHION MAGAZINE</p>
+                            <h3>UI UX DESIGN PLANNING</h3>
+                            <p>UI UX DESIGN LAN RI</p>
                         </div>
                         <div class="project-arrow">→</div>
                     </div>
@@ -261,7 +295,7 @@
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">🌐</div>
-                    <span>github.com/dimas.alghaf</span>
+                    <span>github.com/DimasAlghaf</span>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
@@ -269,7 +303,7 @@
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
-                    <span>Jakarta, Indonesia</span>
+                    <span>Banda Aceh, Indonesia</span>
                 </div>
             </div>
 
@@ -281,6 +315,7 @@
         </section>
 
     </main>
+    <div class="custom-cursor"></div>
 
     <!-- GSAP for Premium Animations based on Skill Guidelines -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

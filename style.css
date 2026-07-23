@@ -727,3 +727,568 @@ a {
 .stagger-3 {
     transition-delay: 0.3s;
 }
+
+/* --- Custom Cursor --- */
+* {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.hover-active {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.hover-img {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    mix-blend-mode: normal;
+}
+
+/* --- Premium Page Transition --- */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    pointer-events: none;
+    display: flex;
+}
+
+.transition-strip {
+    flex: 1;
+    height: 100%;
+    background-color: var(--accent);
+    /* Dark Red Transition */
+    transform-origin: top;
+    transform: scaleY(1);
+    /* Mulai dalam keadaan tertutup penuh */
+}
+
+/* --- System Error Preloader --- */
+.system-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    /* Extra dark for terminal feel */
+    z-index: 10005;
+    /* higher than curtain */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 5%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal-text {
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.console-line {
+    opacity: 0;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.error-text {
+    color: var(--accent);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(229, 46, 45, 0.6);
+}
+
+.loading-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.loading-bar-container {
+    flex: 1;
+    height: 3px;
+    background-color: var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.loading-percentage {
+    color: var(--text-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 50px;
+    text-align: right;
+}
+
+.boot-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-primary);
+    z-index: 10;
+}
+
+.btn-boot {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.btn-boot:hover {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* --- Hover Glitch & Profile Glitch Effect --- */
+.hover-screen-glitch {
+    animation: screenShake 0.15s infinite;
+    mix-blend-mode: difference;
+    background-color: #ff000022;
+}
+
+@keyframes screenShake {
+    0% {
+        transform: translateX(2px) translateY(2px);
+        filter: contrast(150%) hue-rotate(90deg);
+    }
+
+    25% {
+        transform: translateX(-3px) translateY(0px) skewX(2deg);
+        filter: contrast(120%) drop-shadow(0 0 10px red);
+    }
+
+    50% {
+        transform: translateX(2px) translateY(-2px);
+        filter: contrast(200%) hue-rotate(-90deg);
+    }
+
+    75% {
+        transform: translateX(-1px) translateY(2px) skewX(-2deg);
+        filter: contrast(100%);
+    }
+
+    100% {
+        transform: translateX(3px) translateY(-1px);
+        filter: contrast(150%);
+    }
+}
+
+.profile-glitch-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vh;
+    height: 80vh;
+    z-index: 50;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.profile-glitch-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0 0 40px red) contrast(200%) saturate(300%) hue-rotate(30deg);
+    animation: extremeGlitch 0.15s infinite alternate;
+}
+
+@keyframes extremeGlitch {
+    0% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translate(-15px, 5px) skewX(40deg);
+        filter: hue-rotate(90deg);
+        opacity: 0.8;
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(15px, -5px) skewX(-40deg);
+        filter: hue-rotate(0deg);
+        opacity: 1;
+    }
+
+    40% {
+        clip-path: inset(40% 0 50% 0);
+        transform: translate(-30px, 0);
+        filter: hue-rotate(-180deg) invert(1);
+        opacity: 0.5;
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(20px, 10px) skewX(80deg) scale(1.1);
+        filter: hue-rotate(45deg);
+        opacity: 0.9;
+    }
+
+    80% {
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(-25px, -5px);
+        filter: saturate(10) blur(2px);
+        opacity: 1;
+    }
+
+    100% {
+        clip-path: inset(30% 0 40% 0);
+        transform: translate(10px, 5px) skewX(-20deg);
+        filter: saturate(5) brightness(2);
+        opacity: 0.7;
+    }
+}
+
+/* --- Binary Canvas --- */
+#binary-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    /* Berada di atas strip merah */
+    opacity: 0;
+    /* Awalnya tidak terlihat, akan difading js */
+    mix-blend-mode: color-dodge;
+}
+
+/* --- Final Glitch Flash Effect --- */
+.final-glitch-flash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10004;
+    /* Di atas canvas biner */
+    background: #fff;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    opacity: 0;
+    display: none;
+}
+
+.glitch-anim {
+    animation: finalGlitchDrop 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes finalGlitchDrop {
+    0% {
+        opacity: 1;
+        filter: invert(1) hue-rotate(180deg);
+        transform: scale(1.1) skewX(40deg);
+        clip-path: inset(10% 0 80% 0);
+    }
+
+    15% {
+        opacity: 1;
+        filter: invert(0) hue-rotate(0deg);
+        clip-path: inset(50% 0 10% 0);
+        transform: scale(1) skewX(-30deg);
+        background: var(--accent);
+    }
+
+    30% {
+        opacity: 0.8;
+        filter: invert(1) sepia(1);
+        clip-path: inset(20% 0 50% 0);
+        transform: scale(1.05) translate(-20px, 20px);
+        background: #fff;
+    }
+
+    45% {
+        opacity: 0.9;
+        clip-path: inset(80% 0 5% 0);
+        transform: scale(1) skewX(20deg);
+        background: var(--border);
+    }
+
+    60% {
+        opacity: 1;
+        filter: invert(0);
+        background: #fff;
+        clip-path: inset(0);
+        transform: scale(1.02);
+    }
+
+    80% {
+        opacity: 0.5;
+        filter: contrast(300%) grayscale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+/* --- Final ERROR Text Glitch Effect --- */
+.final-error-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-bebas);
+    font-size: 15rem;
+    color: var(--accent);
+    z-index: 10006;
+    /* Di atas segalanya */
+    pointer-events: none;
+    opacity: 0;
+    display: none;
+    text-shadow: 5px 0 blue, -5px 0 #00ff00;
+}
+
+.glitch-text-anim {
+    animation: textGlitchDrop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes textGlitchDrop {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) skewX(40deg) scale(0.8);
+        clip-path: inset(10% 0 80% 0);
+        text-shadow: 20px 0 blue, -20px 0 #0f0;
+    }
+
+    15% {
+        opacity: 1;
+        transform: translate(-48%, -52%) skewX(-30deg) scale(1.1);
+        clip-path: inset(50% 0 10% 0);
+        text-shadow: -15px 0 red, 15px 0 blue;
+    }
+
+    30% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        clip-path: inset(20% 0 50% 0);
+        text-shadow: 10px 0 #0f0, -10px 0 red;
+    }
+
+    45% {
+        opacity: 1;
+        transform: translate(-52%, -48%) skewX(20deg);
+        clip-path: inset(80% 0 5% 0);
+        text-shadow: -5px 0 red, 10px 0 blue;
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        clip-path: inset(0);
+        text-shadow: 5px 0 blue, -5px 0 red;
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+        filter: drop-shadow(0 0 20px red);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.4);
+        filter: blur(10px);
+    }
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+
+    /* Kembalikan pointer asli layar sentuh, sembunyikan kursor modifikasi */
+    .custom-cursor {
+        display: none !important;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+
+    /* Nav/Header */
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    /* Hero section */
+    .hero-container {
+        flex-direction: column;
+        padding-top: 15vh;
+        gap: 3rem;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        word-break: break-word;
+    }
+
+    .hero-bg-text {
+        font-size: 6rem;
+        top: 25%;
+        left: -10%;
+    }
+
+    .hero-right {
+        text-align: left;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .hero-stats {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .stat-item {
+        margin-right: 1.5rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+    }
+
+    .project-card {
+        margin-bottom: 2.5rem;
+    }
+
+    /* Details Section */
+    .details-section {
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+    }
+
+    .education-skills,
+    .experience-process {
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+    }
+
+    .experience-process {
+        padding-left: 0;
+        margin-top: 4rem;
+    }
+
+    /* Footer */
+    .contact-footer {
+        flex-direction: column-reverse;
+        padding: 3rem 1.5rem;
+        gap: 4rem;
+    }
+
+    .contact-left {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .contact-cta {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .contact-cta img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Preloader adjustments */
+    .system-preloader {
+        padding: 2rem 5%;
+    }
+
+    .terminal-text,
+    .console-line {
+        font-size: 0.85rem;
+    }
+
+    .btn-boot {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .profile-glitch-container {
+        width: 85vw;
+        height: 50vh;
+    }
+}
+
+/* --- Animasi Project Pop Up --- */
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-img-wrapper {
+    border-radius: 4px;
+    /* Sudut halus premium */
+}
+
+.project-img-wrapper img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    will-change: transform;
+}
+
+.project-card:hover .project-img-wrapper img {
+    transform: scale(1.12);
+}
+
+/* --- Frame Pop Up (Skala Keseluruhan) --- */
+.project-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.05) !important;
+}
