@@ -428,4 +428,81 @@ document.addEventListener("DOMContentLoaded", () => {
         el.addEventListener('mouseenter', () => cursor.classList.add('hover-img'));
         el.addEventListener('mouseleave', () => cursor.classList.remove('hover-img'));
     });
+
+    // --- PROJECT CARD MODAL LOGIC ---
+    const projectData = [
+        {
+            title: "WEBSITE WEDDING CONTENT CREATOR",
+            category: "WEBSITE DEVELOPMENT",
+            imgSrc: "assets/website.png",
+            desc: "Update fitur website perusahaan wedding content creator meliput halaman pricelist, halaman booking, dan portfolio luxative. Membuat logic baru untuk halaman landing page dan menambahkan sidebar untuk beberapa fitur yang hanya berada pada sidebar"
+        },
+        {
+            title: "SERVER MONITORING GAME",
+            category: "SERVER MAINTENANCE",
+            imgSrc: "assets/monitoring.jpg",
+            desc: "Maintanance server game pada satu platform bernama fivem. Memperbaiki bug dan error pada server serta monitoring server agar tetap berjalan dengan lancar."
+        },
+        {
+            title: "UI UX DESIGN LAN RI",
+            category: "UI UX DESIGN PLANNING",
+            imgSrc: "assets/ui_ux.png",
+            desc: "Perancangan desain User Interface & User Experience yang mengutamakan tingkat aksesibilitas (accessibility) tinggi dan navigasi logis, dimulai dari user research, pembuatan wireframe, hingga hasil akhir interaktif (prototype). Desain dibuat bersih dan user-focused."
+        }
+    ];
+
+    const modal = document.getElementById('project-modal');
+    const modalCloseBtn = document.querySelector('.modal-close-btn');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCategory = document.getElementById('modal-category');
+    const modalDesc = document.getElementById('modal-desc');
+
+    document.querySelectorAll('.project-card').forEach((card, index) => {
+        card.style.cursor = 'pointer';
+
+        card.addEventListener('click', () => {
+            // Mainkan suara sistem pendek (jika ada audioCtx)
+            try {
+                if (audioCtx && audioCtx.state !== 'suspended') {
+                    playBeep(800, 'square', 0.05, 0.02);
+                }
+            } catch (e) { }
+
+
+
+            // Masukkan data dinamis ke modal
+            const data = projectData[index];
+            if (data) {
+                modalImg.src = data.imgSrc;
+                modalTitle.textContent = data.title;
+                modalCategory.textContent = data.category;
+                modalDesc.textContent = data.desc;
+            }
+
+            // Tampilkan modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // hilangkan scroll body saat modal aktif
+        });
+    });
+
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        // Tambahkan efek cursor
+        modalCloseBtn.addEventListener('mouseenter', () => cursor.classList.add('hover-active'));
+        modalCloseBtn.addEventListener('mouseleave', () => cursor.classList.remove('hover-active'));
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            // Tutup jika area luar (overlay) di-klik
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });
