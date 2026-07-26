@@ -8,9 +8,29 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0);
 
 document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const skipAnim = urlParams.get('skip_anim');
+    const preloaderEl = document.querySelector('.system-preloader');
+    const transitionOverlay = document.querySelector(".page-transition");
 
-    // Kunci scroll saat preloader
-    document.body.style.overflow = 'hidden';
+    if (skipAnim === "1") {
+        if (preloaderEl) preloaderEl.remove();
+        if (transitionOverlay) transitionOverlay.remove();
+        document.body.style.overflow = '';
+
+        // Instantly fade in elements rather than waiting for glitch boot
+        setTimeout(() => {
+            gsap.to(".hero-bg-text", { opacity: 0.15, scale: 1, duration: 1.2, ease: "power2.out" });
+            gsap.to(".hero-image-wrapper img", { opacity: 1, y: 0, scale: 1, duration: 1, ease: "expo.out" });
+            gsap.to([".hero-greeting", ".hero-title", ".hero-role", ".hero-desc", ".hero-globe"], { opacity: 1, x: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" });
+            gsap.to([".hero-motto", ".stat-item"], { opacity: 1, x: 0, duration: 0.8, stagger: 0.15, ease: "back.out(1.2)" });
+        }, 150);
+    } else {
+        // Kunci scroll saat preloader (hanya jika elemennya ada)
+        if (preloaderEl) {
+            document.body.style.overflow = 'hidden';
+        }
+    }
 
     // Initial setup to prevent flash sebelum efek masuk
     gsap.set(".hero-bg-text", { opacity: 0, scale: 0.95 });
@@ -342,30 +362,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // --- 5. CONTACT FOOTER ---
-    gsap.from(".contact-left > *, .contact-item", {
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: "power1.out",
-        scrollTrigger: {
-            trigger: ".contact-footer",
-            start: "top 90%",
-            toggleActions: "play none none reverse"
-        }
-    });
+    if (document.querySelector(".contact-footer")) {
+        gsap.from(".contact-left > *, .contact-item", {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: ".contact-footer",
+                start: "top 90%",
+                toggleActions: "play none none reverse"
+            }
+        });
 
-    gsap.from(".cta-card img", {
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: ".contact-footer",
-            start: "top 85%",
-            toggleActions: "play none none reverse"
-        }
-    });
+        gsap.from(".cta-card img", {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".contact-footer",
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            }
+        });
+    }
 
     // Add smooth scrolling to lenis or just normal anchor behavior
     document.querySelectorAll('.nav a').forEach(anchor => {
@@ -385,14 +407,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- CUSTOM CURSOR ---
     const cursor = document.querySelector('.custom-cursor');
 
+    // Mencegah patah/jump cursor saat pindah halaman dengan menyimpan koordinat terakhir
+    let initX = sessionStorage.getItem("cursorX") ? parseFloat(sessionStorage.getItem("cursorX")) : window.innerWidth / 2;
+    let initY = sessionStorage.getItem("cursorY") ? parseFloat(sessionStorage.getItem("cursorY")) : window.innerHeight / 2;
+
     // GSAP quickTo for highly responsive tracking
-    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+    gsap.set(cursor, { x: initX, y: initY, xPercent: -50, yPercent: -50 });
     const xTo = gsap.quickTo(cursor, "x", { duration: 0.15, ease: "power3" });
     const yTo = gsap.quickTo(cursor, "y", { duration: 0.15, ease: "power3" });
 
     window.addEventListener('mousemove', (e) => {
         xTo(e.clientX);
         yTo(e.clientY);
+        sessionStorage.setItem("cursorX", e.clientX);
+        sessionStorage.setItem("cursorY", e.clientY);
     });
 
     // --- PAGE TRANSITION (Navigate Away) ---
@@ -403,6 +431,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // Biarkan link anchor yang bersifat smooth scroll, link kosong, tel, mail berjalan biasa
             if (!target || target.startsWith("#") || target.includes("mailto:") || target.includes("tel:")) return;
             if (this.target === "_blank") return; // Biarkan link tab baru berjalan biasa
+
+            // Bypass animasi transisi khusus jika terpasang class no-transition
+            if (this.classList.contains("no-transition")) {
+                e.preventDefault();
+                gsap.to("main, .header", { opacity: 0, duration: 0.2, ease: "power1.out" });
+                setTimeout(() => { window.location = this.href; }, 200);
+                return;
+            }
 
             e.preventDefault();
             const destination = this.href;
