@@ -600,6 +600,47 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-primary:hover .icon {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    color: #25D366;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-whatsapp .icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-whatsapp:hover .icon {
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 0 10px #25D366;
 }
 
 .contact-middle {
