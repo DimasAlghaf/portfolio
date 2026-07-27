@@ -778,31 +778,33 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 15px;
-    height: 15px;
-    background-color: var(--accent);
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
     border-radius: 50%;
     pointer-events: none;
     z-index: 99999;
-    transform: translate(-50%, -50%);
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border 0.3s ease;
     mix-blend-mode: difference;
+    border: 1px solid transparent;
+    /* Untuk transisi border */
 }
 
 .custom-cursor.hover-active {
-    width: 60px;
-    height: 60px;
-    background-color: #ffffff;
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    border: 1.5px solid #ffffff;
     mix-blend-mode: difference;
 }
 
 .custom-cursor.hover-img {
-    width: 70px;
-    height: 70px;
-    background-color: rgba(255, 255, 255, 0.1);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.05);
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     mix-blend-mode: normal;
 }
 
