@@ -531,4 +531,21 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // --- CONTACT FORM INTERCEPTOR ---
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = encodeURIComponent(this.name.value);
+            const userEmail = encodeURIComponent(this.email.value);
+            const bodyText = encodeURIComponent(`Name: ${this.name.value}\nEmail: ${this.email.value}\n\nMessage:\n${this.message.value}`);
+
+            // Menggunakan tautan Gmail Compose Web yang jauh lebih reliabel ketimbang 'mailto:' OS
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=dimasaghaf@gmail.com&su=Portfolio%20Contact%20from%20${name}&body=${bodyText}`;
+
+            // Buka Gmail di tab baru
+            window.open(gmailLink, '_blank');
+        });
+    }
 });
