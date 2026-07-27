@@ -860,14 +860,42 @@ a {
         padding: 0;
     }
 
-    .contact-footer {
-        grid-template-columns: 1fr;
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
         text-align: center;
     }
 
+    .cta-left {
+        order: 2;
+    }
+
+    .contact-right {
+        order: 1;
+    }
+
     .contact-middle {
+        order: 3;
         padding-left: 0;
         align-items: center;
+    }
+
+    .contact-item {
+        word-break: break-word;
+        justify-content: center;
+    }
+
+    .cta-left h2 {
+        align-items: center;
+    }
+
+    .cta-left p {
+        margin: 0 auto 2rem;
+    }
+
+    .action-buttons {
+        justify-content: center;
     }
 }
 

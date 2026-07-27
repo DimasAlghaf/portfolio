@@ -35,62 +35,64 @@
     <main>
         <section class="hero" id="home"
             style="min-height: 25vh; padding-top: 8rem; padding-bottom: 2rem; display: flex; align-items: center; justify-content: center; text-align: center;">
-            <h1 class="hero-bg-text" style="font-size: clamp(2rem, 12vw, 15rem); letter-spacing: 5px;">ARCHIVE</h1>
+            <h1 class="hero-bg-text" style="font-size: clamp(2rem, 12vw, 15rem); letter-spacing: 5px;">ACHIVEMENTS</h1>
             <div class="hero-container" style="justify-content: center;">
                 <div class="hero-content"
                     style="max-width: 100%; display: flex; flex-direction: column; align-items: center; padding: 0 1rem;">
                     <h1 class="hero-title" style="font-size: clamp(3rem, 10vw, 5rem);">
-                        ALL PROJECTS
+                        ACHIEVEMENTS
                     </h1>
-                    <div class="hero-role">SELECTED PROJECTS</div>
+                    <div class="hero-role">SELECTED ACHIEVEMENTS</div>
                 </div>
             </div>
         </section>
 
         <section class="projects" id="projects" style="padding-top: 2rem;">
-            <div class="projects-grid">
-                <div class="project-card">
+
+            <div class="portfolio-tabs" style="justify-content: center; margin-bottom: 3rem;">
+                <button class="tab-btn active" data-target="projects">PROJECTS</button>
+                <button class="tab-btn" data-target="certificates">CERTIFICATED</button>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+                <div class="project-card" data-index="0">
                     <div class="project-img-wrapper">
                         <img src="assets/website.png" alt="Wedding Content Creator">
                     </div>
                     <div class="project-footer">
-                        <div class="project-number">01</div>
                         <div class="project-info">
                             <h3>UPDATE FITUR WEBSITE PERUSAHAAN WEDDING CONTENT CREATOR</h3>
                             <p>WEBSITE DEVELOPMENT</p>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-index="1">
                     <div class="project-img-wrapper">
                         <img src="assets/monitoring.jpg" alt="Server Monitoring">
                     </div>
                     <div class="project-footer">
-                        <div class="project-number">02</div>
                         <div class="project-info">
                             <h3>MONITORING SERVER AND MANAGEMENT SERVER GAME</h3>
                             <p>SERVER MAINTENANCE</p>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-index="2">
                     <div class="project-img-wrapper">
                         <img src="assets/ui_ux.png" alt="UI UX Design">
                     </div>
                     <div class="project-footer">
-                        <div class="project-number">03</div>
                         <div class="project-info">
                             <h3>UI UX DESIGN PLANNING</h3>
                             <p>UI UX DESIGN LAN RI</p>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-index="3">
                     <div class="project-img-wrapper">
                         <img src="assets/dimas.jpeg" alt="Portfolio Website" style="filter: brightness(0.8);">
                     </div>
                     <div class="project-footer">
-                        <div class="project-number">04</div>
                         <div class="project-info">
                             <h3>PERSONAL PORTFOLIO</h3>
                             <p>WEB DEVELOPMENT</p>
@@ -98,9 +100,62 @@
                     </div>
                 </div>
             </div>
+
+            <!-- CERTIFICATES GRID (Hidden by default) -->
+            <div class="projects-grid" id="certificates-grid" style="display: none;">
+                <div class="project-card" data-index="4">
+                    <div class="project-img-wrapper">
+                        <img src="assets/Sertifikat1.png" alt="Certificate 1"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>AWS ACADEMY CLOUD FOUNDATIONS</h3>
+                            <p>AMAZON WEB SERVICES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-index="5">
+                    <div class="project-img-wrapper">
+                        <img src="assets/sertifikat2.png" alt="Certificate 2"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>DATABASE DESIGN</h3>
+                            <p>ORACLE ACADEMY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-index="6">
+                    <div class="project-img-wrapper">
+                        <img src="assets/sertifikat3.png" alt="Certificate 3"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>PAPER AUTHOR / PRESENTER</h3>
+                            <p>COSITE 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-index="7">
+                    <div class="project-img-wrapper">
+                        <img src="assets/sertifikat4.png" alt="Certificate 4"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>ACHIEVEMENT CERTIFICATE</h3>
+                            <p>PROFESSIONAL DEVELOPMENT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-
-
 
     </main>
 
