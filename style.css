@@ -301,7 +301,13 @@ a {
     width: calc(33.333% - 1.35rem);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    border: 1px solid var(--border);
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Slightly thicker base shadow */
 }
 
 @media (max-width: 1024px) {
@@ -318,6 +324,9 @@ a {
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    /* Thicker lift shadow */
+    border-color: transparent;
 }
 
 .project-img-wrapper {
@@ -325,6 +334,7 @@ a {
     height: 300px;
     overflow: hidden;
     margin-bottom: 1.5rem;
+    border-radius: 2px;
 }
 
 .project-img-wrapper img {
