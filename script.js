@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillStyle = 'rgba(5, 5, 5, 0.25)';
             ctx.fillRect(0, 0, width, height);
 
-            ctx.fillStyle = '#E52E2D';
+            ctx.fillStyle = '#0145F2';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
@@ -245,25 +245,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fungsi ini dipanggil setelah preloader (sistem loading hitam) selesai 100%
     function startPageEnterAnimation() {
-        // Mainkan hujan biner selama 3 detik saja sesuai permintaan
-        startBinaryRain(3000);
-
-        // --- TRANSISI AKHIR GLITCH (Teks ERROR besar membelah layar) ---
-        setTimeout(() => {
-            const errorText = document.querySelector(".final-error-text");
-            if (errorText) {
-                errorText.style.display = "block";
-                errorText.classList.add("glitch-text-anim");
-                try {
-                    playBeep(150, 'sawtooth', 0.5, 0.4);
-                    setTimeout(() => playBeep(500, 'square', 0.3, 0.2), 300);
-                } catch (e) { }
-                setTimeout(() => { errorText.style.display = "none"; }, 800);
-            }
-        }, 3000);
-
         // --- 1. HERO LOAD ANIMATIONS ---
-        const heroTl = gsap.timeline({ delay: 3.8 }); // Tunggu hujan biner & animasi ERROR pudar
+        const heroTl = gsap.timeline({ delay: 0.2 }); // Mulai segera setelah preloader selesai
 
         heroTl.to(".hero-bg-text", {
             opacity: 0.15,
@@ -467,11 +450,10 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const destination = this.href;
 
-            // Turunkan layar gelap hujan biner, kemudian baru pindah
-            startBinaryRain(3000);
+            gsap.to("main, .header", { opacity: 0, duration: 0.3, ease: "power1.out" });
             setTimeout(() => {
                 window.location = destination;
-            }, 2000);
+            }, 300);
         });
     });
 
