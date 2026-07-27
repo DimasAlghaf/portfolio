@@ -405,52 +405,52 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- PROJECT CARD MODAL LOGIC ---
     const projectData = [
         {
-            title: "WEBSITE WEDDING CONTENT CREATOR",
+            title: "WEDDING CONTENT CREATOR WEBSITE",
             category: "WEBSITE DEVELOPMENT",
             imgSrc: "assets/website.png",
-            desc: "Update fitur website perusahaan wedding content creator meliput halaman pricelist, halaman booking, dan portfolio luxative. Membuat logic baru untuk halaman landing page dan menambahkan sidebar untuk beberapa fitur yang hanya berada pada sidebar"
+            desc: "Updated website features for a wedding content creator company, covering the pricelist page, booking page, and Luxative portfolio. Developed new structural logic for the landing page and implemented a sidebar for specialized features."
         },
         {
-            title: "SERVER MONITORING GAME",
+            title: "GAME SERVER MONITORING AND MANAGEMENT",
             category: "SERVER MAINTENANCE",
             imgSrc: "assets/monitoring.jpg",
-            desc: "Maintanance server game pada satu platform bernama fivem. Memperbaiki bug dan error pada server serta monitoring server agar tetap berjalan dengan lancar."
+            desc: "Conducted game server maintenance on the FiveM platform. Resolved bugs and errors while proactively monitoring overall server performance to ensure smooth, uninterrupted networking and gameplay."
         },
         {
-            title: "UI UX DESIGN LAN RI",
+            title: "LAN RI UI/UX DESIGN PLANNING",
             category: "UI UX DESIGN PLANNING",
             imgSrc: "assets/ui_ux.png",
-            desc: "Perancangan desain User Interface & User Experience yang mengutamakan tingkat aksesibilitas (accessibility) tinggi dan navigasi logis, dimulai dari user research, pembuatan wireframe, hingga hasil akhir interaktif (prototype). Desain dibuat bersih dan user-focused."
+            desc: "Designed User Interface and User Experience structures with a core focus on high accessibility and logical navigation. The creative process ranged from comprehensive user research and wireframing to an interactive final prototype, delivering a clean, user-focused web design."
         },
         {
             title: "PERSONAL PORTFOLIO",
             category: "FRONTEND WEB DEVELOPMENT",
             imgSrc: "assets/dimas.jpeg",
-            desc: "Pengembangan website portofolio pribadi eksklusif berkonsep premium dengan tema terang (Light Mode Canvas Cloud), transisi mulus menggunakan GSAP ScrollTrigger, dan desain responsif yang minimalis. Dibuat secara native menggunakan HTML, CSS, dan Javascript murni tanpa framework untuk menonjolkan kreativitas antarmuka."
+            desc: "Developed an exclusive, premium personal portfolio website featuring a Light Mode canvas design. Integrated flawless scroll transitions using GSAP ScrollTrigger and applied a minimalist, responsive layout. Built natively using HTML, CSS, and vanilla JavaScript to highlight creative interface design capabilities."
         },
         {
             title: "AWS ACADEMY CLOUD FOUNDATIONS",
             category: "AMAZON WEB SERVICES",
             imgSrc: "assets/Sertifikat1.png",
-            desc: "Sertifikasi kelulusan AWS Academy Cloud Foundations yang membuktikan pemahaman dasar tentang layanan cloud computing pada infrastruktur Amazon Web Services, meliputi aspek keamanan, arsitektur, dan prinsip cloud."
+            desc: "AWS Academy Cloud Foundations professional certification validating foundational knowledge of enterprise cloud computing services on the vast Amazon Web Services infrastructure, covering key security aspects, cloud architecture, and DevOps principles."
         },
         {
             title: "DATABASE DESIGN",
             category: "ORACLE ACADEMY",
             imgSrc: "assets/sertifikat2.png",
-            desc: "Sertifikasi kelulusan Database Design dari Oracle Academy. Membuktikan kompetensi dalam analisis perancangan basis data relasional, pemodelan data konseptual, dan implementasi desain sistem informasi yang tangguh."
+            desc: "Database Design graduation certification from Oracle Academy, demonstrating strong competency in relational database design analysis, conceptual data modeling paradigms, and the backend implementation of robust information systems."
         },
         {
             title: "PAPER AUTHOR / PRESENTER",
             category: "COSITE 2025",
             imgSrc: "assets/sertifikat3.png",
-            desc: "Sertifikat penghargaan sebagai pemakalah (Presenter & Author) pada konferensi internasional COSITE (International Conference on Computer System, Information Technology, and Electrical Engineering) tahun 2025."
+            desc: "Official Certificate of Recognition as a contributing Presenter and Author at the International Conference on Computer System, Information Technology, and Electrical Engineering (COSITE) 2025."
         },
         {
-            title: "PAPER AUTHOR / PRESENTER",
-            category: "COSITE 2025 (ADDITIONAL)",
+            title: "ADDITIONAL PAPER ACKNOWLEDGEMENT",
+            category: "COSITE 2025",
             imgSrc: "assets/sertifikat4.png",
-            desc: "Sertifikat penghargaan tambahan/bukti partisipasi sebagai pemakalah pada sesi presentasi konferensi internasional COSITE 2025."
+            desc: "Additional Certificate of Recognition validating active professional participation as a presenter during the live academic presentation sessions at the COSITE 2025 international tech conference."
         }
     ];
 
