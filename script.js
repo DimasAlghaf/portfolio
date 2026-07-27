@@ -360,24 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- CUSTOM CURSOR ---
-    const cursor = document.querySelector('.custom-cursor');
-
-    // Mencegah patah/jump cursor saat pindah halaman dengan menyimpan koordinat terakhir
-    let initX = sessionStorage.getItem("cursorX") ? parseFloat(sessionStorage.getItem("cursorX")) : window.innerWidth / 2;
-    let initY = sessionStorage.getItem("cursorY") ? parseFloat(sessionStorage.getItem("cursorY")) : window.innerHeight / 2;
-
-    // GSAP quickTo for highly responsive tracking
-    gsap.set(cursor, { x: initX, y: initY, xPercent: -50, yPercent: -50 });
-    const xTo = gsap.quickTo(cursor, "x", { duration: 0.15, ease: "power3" });
-    const yTo = gsap.quickTo(cursor, "y", { duration: 0.15, ease: "power3" });
-
-    window.addEventListener('mousemove', (e) => {
-        xTo(e.clientX);
-        yTo(e.clientY);
-        sessionStorage.setItem("cursorX", e.clientX);
-        sessionStorage.setItem("cursorY", e.clientY);
-    });
+    // (All custom cursor logic has been removed as per user request to restore completely standard OS pointer behavior without extra effects)
 
     // --- PAGE TRANSITION (Navigate Away) ---
     document.querySelectorAll("a").forEach(anchor => {
@@ -406,19 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Hover effect elements (semua teks: links, headings, paragraf, spans, list, button, dan kelas tipografi lainnya)
-    const hoverElements = document.querySelectorAll('a, p, span, h1, h2, h3, h4, h5, h6, button, li, .hero-greeting, .hero-role, .hero-globe, .stat-num, .stat-text, .project-number, .project-info, .project-arrow, .ed-year, .step-num, .step-desc, .quote-mark, .signature, .hero-bg-text');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover-active'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover-active'));
-    });
-
-    // Hover effect specifically for images
-    const imageElements = document.querySelectorAll('img, .step-icon');
-    imageElements.forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hover-img'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hover-img'));
-    });
+    // Standard Hover interactions using normal CSS logic now handling hover feel.
 
     // --- PROJECT CARD MODAL LOGIC ---
     const projectData = [
@@ -488,9 +459,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.classList.remove('active');
             document.body.style.overflow = '';
         });
-        // Tambahkan efek cursor
-        modalCloseBtn.addEventListener('mouseenter', () => cursor.classList.add('hover-active'));
-        modalCloseBtn.addEventListener('mouseleave', () => cursor.classList.remove('hover-active'));
+        // Native cursor logic handles modal closing hover
     }
 
     if (modal) {
