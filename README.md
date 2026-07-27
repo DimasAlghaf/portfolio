@@ -1,32 +1,20 @@
 # Portfolio Dimas Ayyub Alghafiqi
 
-This is a premium, highly interactive portfolio featuring a cyberpunk glitch boot sequence, dark-themed aesthetics, and a fully responsive grid.
+This is a premium, interactive personal portfolio website designed to showcase projects, professional experience, and certifications. Built dynamically with standard web technologies, the platform enforces modern design patterns such as clean light-mode aesthetics, responsive grids, and highly polished scroll interactions.
 
-## Features
-- **Cyberpunk Preloader**: Interaktif audio-visual boot screen terinspirasi dari Hacker interfaces.
-- **GSAP Animations**: Transisi presisi dan reveal scrolling mulus.
-- **Pure CSS Effects**: CRT scanlines, 3D grids, dan Pop-up effects tanpa overhead eksternal.
-- **Responsiveness**: Support full integrasi ke berbagai ukuran layar smartphone hingga ultra-wide Desktop.
+## Key Features
 
----
+- **Modern Light Theme & Typography**: A striking visual hierarchy utilizing clean palettes, high contrast typography, and bespoke structural UI components.
+- **GSAP & Lenis Integration**: Includes robust ScrollTrigger logic governing staggered reveals, sticky scrolling properties, and dynamic graphical elements like vertical timelines.
+- **Interactive Component Grids**: Categorized layout seamlessly switching between Projects and Professional Certificates across both Homepage and Archive segments without reliance on heavy backend routing.
+- **Responsive Architecture**: Fully adapted across mobile, tablet, and ultra-wide screens. Mobile interactions dynamically reflow complex grids (such as the Contact Section and Hero stats) via CSS flex-order logic.
+- **Custom Native Modals**: Zero dependency popup modaling for deep-diving into individual project credentials with smooth overlay blurs.
 
-## 🚀 Panduan Deployment: Cara Publish Website-mu ke Vercel
+## Technology Stack
 
-Vercel adalah cara tercepat dan termudah untuk mem-publish (meng-hosting) website secara gratis. Karena semua kodemu baru saja berhasil di-`push` ke akun Github milikmu, fitur Vercel bisa menarik kodenya langsung tanpa kamu perlu menginstalnya secara manual!
+- **HTML5** & **Semantic structuring**
+- **Vanilla CSS3** (Custom properties, grid, flexbox, micro-animations, media queries)
+- **Vanilla JavaScript** (ES6+, DOM navigation)
+- **GSAP** (GreenSock Animation Platform 3.12)
+- **Lenis** (Smooth scroll hijacking API)
 
-### Langkah-langkah Otomatis (Lewat Website Vercel):
-1. **Buka Vercel:** Akses situs [Vercel.com](https://vercel.com/) di browsermu.
-2. **Daftar / Login:** Pilih opsi "*Continue with GitHub*" lalu berikan otorisasi izin masuk.
-3. **Impor Proyek Baru:**
-   - Setelah masuk ke *Dashboard*, klik tombol hitam **"Add New..."** yang ada di pojok kanan atas, lalu pilih **"Project"**.
-4. **Pilih Repositori Github:**
-   - Vercel akan otomatis menampilkan daftar repositori Github milikmu.
-   - Cari repositori portofolio ini, lalu klik tombol **"Import"**.
-5. **Konfigurasi (Langsung Deploy):**
-   - Vercel sangat pintar. Ia akan tahu secara presisi bahwa ini adalah proyek *Static HTML/CSS/JS*.
-   - Kamu tidak perlu merubah *(setting)* apapun! Cukup gulir ke bawah dan klik tombol besar **"Deploy"**.
-6. **Selesai! 🎉**
-   - Tunggu sekitar 15-30 detik sementara Vercel memberikan efek kembang api di layar, dan web portofoliomu resmi *Live* secara permanen di seluruh belahan dunia internet.
-   - Kamu juga bisa langsung meng-klik tombol *Visit* untuk melihat alamat domain yang Vercel sediakan (biasanya mirip _domain-kamu.vercel.app_).
-
-> **Catatan:** Apapun perubahan yang kamu `git push` ke Github di masa depan, entah mengganti foto atau menambah proyek, Vercel akan secara ajaib me-refresh tayangan website onlinemu secara otomatis (*Continuous Deployment*).
