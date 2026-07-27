@@ -103,12 +103,16 @@
 
         <section class="projects" id="projects">
             <div class="section-header">
-                <h2>SELECTED PROJECTS</h2>
-                <a href="works.html" class="view-all no-transition">VIEW ALL PROJECTS <span>→</span></a>
+                <div class="portfolio-tabs">
+                    <button class="tab-btn active" data-target="projects">PROJECTS</button>
+                    <button class="tab-btn" data-target="certificates">CERTIFICATED</button>
+                </div>
+                <a href="works.html" class="view-all no-transition">VIEW ALL <span>→</span></a>
             </div>
 
-            <div class="projects-grid">
-                <div class="project-card">
+            <!-- PROJECTS GRID -->
+            <div class="projects-grid" id="projects-grid">
+                <div class="project-card" data-index="0">
                     <div class="project-img-wrapper">
                         <img src="assets/website.png" alt="Veloce Bikes">
                     </div>
@@ -120,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-index="1">
                     <div class="project-img-wrapper">
                         <img src="assets/monitoring.jpg" alt="Woodcraft">
                     </div>
@@ -132,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-index="2">
                     <div class="project-img-wrapper">
                         <img src="assets/ui_ux.png" alt="Imbana">
                     </div>
@@ -141,6 +145,61 @@
                         <div class="project-info">
                             <h3>UI UX DESIGN PLANNING</h3>
                             <p>UI UX DESIGN LAN RI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CERTIFICATES GRID (Hidden by default) -->
+            <div class="projects-grid" id="certificates-grid" style="display: none;">
+                <div class="project-card" data-index="4">
+                    <div class="project-img-wrapper">
+                        <img src="assets/Sertifikat1.png" alt="Certificate 1"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>AWS ACADEMY CLOUD FOUNDATIONS</h3>
+                            <p>AMAZON WEB SERVICES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-index="5">
+                    <div class="project-img-wrapper">
+                        <img src="assets/sertifikat2.png" alt="Certificate 2"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>DATABASE DESIGN</h3>
+                            <p>ORACLE ACADEMY</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-index="6">
+                    <div class="project-img-wrapper">
+                        <img src="assets/sertifikat3.png" alt="Certificate 3"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>PAPER AUTHOR / PRESENTER</h3>
+                            <p>COSITE 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-index="7">
+                    <div class="project-img-wrapper">
+                        <img src="assets/sertifikat4.png" alt="Certificate 4"
+                            style="object-position: center; border: 1px solid var(--border);">
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-info">
+                            <h3>ACHIEVEMENT CERTIFICATE</h3>
+                            <p>PROFESSIONAL DEVELOPMENT</p>
                         </div>
                     </div>
                 </div>

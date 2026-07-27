@@ -416,6 +416,30 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "FRONTEND WEB DEVELOPMENT",
             imgSrc: "assets/dimas.jpeg",
             desc: "Pengembangan website portofolio pribadi eksklusif berkonsep premium dengan tema terang (Light Mode Canvas Cloud), transisi mulus menggunakan GSAP ScrollTrigger, dan desain responsif yang minimalis. Dibuat secara native menggunakan HTML, CSS, dan Javascript murni tanpa framework untuk menonjolkan kreativitas antarmuka."
+        },
+        {
+            title: "AWS ACADEMY CLOUD FOUNDATIONS",
+            category: "AMAZON WEB SERVICES",
+            imgSrc: "assets/Sertifikat1.png",
+            desc: "Sertifikasi kelulusan AWS Academy Cloud Foundations yang membuktikan pemahaman dasar tentang layanan cloud computing pada infrastruktur Amazon Web Services, meliputi aspek keamanan, arsitektur, dan prinsip cloud."
+        },
+        {
+            title: "DATABASE DESIGN",
+            category: "ORACLE ACADEMY",
+            imgSrc: "assets/sertifikat2.png",
+            desc: "Sertifikasi kelulusan Database Design dari Oracle Academy. Membuktikan kompetensi dalam analisis perancangan basis data relasional, pemodelan data konseptual, dan implementasi desain sistem informasi yang tangguh."
+        },
+        {
+            title: "PAPER AUTHOR / PRESENTER",
+            category: "COSITE 2025",
+            imgSrc: "assets/sertifikat3.png",
+            desc: "Sertifikat penghargaan sebagai pemakalah (Presenter & Author) pada konferensi internasional COSITE (International Conference on Computer System, Information Technology, and Electrical Engineering) tahun 2025."
+        },
+        {
+            title: "PAPER AUTHOR / PRESENTER",
+            category: "COSITE 2025 (ADDITIONAL)",
+            imgSrc: "assets/sertifikat4.png",
+            desc: "Sertifikat penghargaan tambahan/bukti partisipasi sebagai pemakalah pada sesi presentasi konferensi internasional COSITE 2025."
         }
     ];
 
@@ -437,10 +461,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             } catch (e) { }
 
-
+            // Ambil data-index jika ada, jika tidak gunakan index loop bawaan
+            const attrIndex = card.getAttribute('data-index');
+            const dataIndex = attrIndex !== null ? parseInt(attrIndex) : index;
 
             // Masukkan data dinamis ke modal
-            const data = projectData[index];
+            const data = projectData[dataIndex];
             if (data) {
                 modalImg.src = data.imgSrc;
                 modalTitle.textContent = data.title;
@@ -469,6 +495,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
             }
+        });
+    }
+
+    // --- PORTFOLIO TABS TOGGLE ---
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const projectsGrid = document.getElementById('projects-grid');
+    const certificatesGrid = document.getElementById('certificates-grid');
+
+    if (tabBtns.length > 0 && projectsGrid && certificatesGrid) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const target = btn.getAttribute('data-target');
+                if (target === 'projects') {
+                    projectsGrid.style.display = 'flex';
+                    certificatesGrid.style.display = 'none';
+                } else if (target === 'certificates') {
+                    projectsGrid.style.display = 'none';
+                    certificatesGrid.style.display = 'flex';
+                }
+            });
         });
     }
 });
