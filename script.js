@@ -33,6 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const transitionOverlay = document.querySelector(".page-transition");
 
     if (skipAnim === "1") {
+        // Hapus query parameter skip_anim agar jika di-refresh animasi tetap jalan
+        const updatedUrl = new URL(window.location.href);
+        updatedUrl.searchParams.delete('skip_anim');
+        window.history.replaceState({}, '', updatedUrl);
+
         if (preloaderEl) preloaderEl.remove();
         if (transitionOverlay) transitionOverlay.remove();
         document.body.style.overflow = '';
