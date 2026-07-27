@@ -423,29 +423,80 @@ a {
     margin-bottom: 2rem;
 }
 
+.experience-list {
+    position: relative;
+    padding-left: 2px;
+    /* space for the timeline */
+}
+
+.timeline-line {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background-color: var(--border);
+    z-index: 0;
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background-color: var(--accent);
+    z-index: 1;
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
 .ed-item {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 1.5rem;
+    position: relative;
+    padding-bottom: 2rem;
+    margin-bottom: 0;
+}
+
+.ed-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.ed-item:last-of-type {
+    border-left-color: transparent;
 }
 
 .ed-info h5 {
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 0.3rem;
 }
 
 .ed-info p {
-    color: var(--text-secondary);
+    color: var(--accent);
     font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .ed-year {
-    color: var(--accent);
-    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    order: -1;
+    /* Pushes year to the top automatically */
 }
 
 .skills-tags {

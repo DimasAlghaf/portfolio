@@ -290,6 +290,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    gsap.to(".timeline-progress", {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".experience-list",
+            start: "top center",
+            end: "bottom center",
+            scrub: 1
+        }
+    });
+
     gsap.from(".process-step", {
         opacity: 0,
         x: -20,
