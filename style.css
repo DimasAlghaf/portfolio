@@ -291,15 +291,29 @@ a {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
 }
 
 .project-card {
+    width: calc(33.333% - 1.35rem);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .project-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        width: 100%;
+    }
 }
 
 .project-card:hover {
@@ -357,7 +371,7 @@ a {
 .details-section {
     display: grid;
     grid-template-columns: 1fr 1fr 300px;
-    padding: 0 5%;
+    padding: 2rem 5% 4rem;
     background-color: var(--bg-primary);
     min-height: 600px;
 }

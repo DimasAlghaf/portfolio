@@ -63,21 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(".stat-item, .hero-motto", { opacity: 0, x: 30 });
 
     // --- AUDIO SYSTEM (WEB AUDIO API) ---
-    let audioCtx;
+    // (Audio system removed as per user request for silent exclusive experience)
     function playBeep(freq = 600, type = 'square', duration = 0.05, vol = 0.02) {
-        if (!audioCtx) return;
-        try {
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-            gain.gain.setValueAtTime(vol, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + duration);
-        } catch (e) { }
+        // Disabled
     }
 
     // --- SYSTEM ERROR PRELOADER ---
@@ -95,25 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Mengetik log terminal bermuatan error/glitch
+    // Mengetik log terminal tanpa animasi glitch tambahan
     const lineElements = document.querySelectorAll(".console-line");
     preloaderTl.to(lineElements, {
         opacity: 1,
         duration: 0.05,
-        stagger: {
-            each: 0.6, // Jeda per baris
-            onStart: function () {
-                // Mainkan suara saat baris muncul
-                // Jika line ini adalah error merah (indeks 2), bunyikan error
-                const targetEl = this.targets()[0];
-                if (targetEl && targetEl.classList.contains("error-text")) {
-                    playBeep(120, 'sawtooth', 0.6, 0.1); // Suara buzz
-                    setTimeout(() => playBeep(180, 'square', 0.4, 0.1), 100);
-                } else {
-                    playBeep(800, 'square', 0.05, 0.02); // Suara beep ketik normal
-                }
-            }
-        },
+        stagger: 0.6, // Jeda per baris
         ease: "none"
     }, "+=0.3");
 
@@ -135,47 +110,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const bootScreen = document.querySelector(".boot-screen");
 
     if (bootBtn) {
-        // Efek layer mau rusak pas kursor mendekat
         bootBtn.addEventListener("mouseenter", () => {
-            bootScreen.classList.add("hover-screen-glitch");
-            try {
-                if (audioCtx && audioCtx.state !== 'suspended') playBeep(200, 'square', 0.1, 0.05);
-            } catch (e) { }
         });
 
         bootBtn.addEventListener("mouseleave", () => {
-            bootScreen.classList.remove("hover-screen-glitch");
         });
 
         bootBtn.addEventListener("click", () => {
-            // Aktifkan Audio Context akibat User Gesture
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-
-            // Hilangkan layar boot
+            // Hilangkan layar boot dan langsung tampilkan terminal
             gsap.to(".boot-screen", {
                 opacity: 0,
                 duration: 0.2,
                 display: "none",
                 onComplete: () => {
-                    // Munculkan foto portofolio pengguna yang sedang glitching
-                    const glitchBgs = document.querySelector(".profile-glitch-container");
-                    glitchBgs.style.display = "block";
-
-                    // Mainkan suara keras dan kacau beberapa kali
-                    playBeep(200, 'sawtooth', 0.3, 0.2);
-                    setTimeout(() => playBeep(100, 'square', 0.4, 0.3), 500);
-                    setTimeout(() => playBeep(350, 'sawtooth', 0.7, 0.2), 1200);
-                    setTimeout(() => playBeep(150, 'square', 0.5, 0.3), 2000);
-                    setTimeout(() => playBeep(80, 'sawtooth', 0.4, 0.4), 2800);
-                    setTimeout(() => playBeep(400, 'square', 0.6, 0.2), 3400);
-
-                    // Berjalan selama 4 detik, lalu hentikan dan jalankan Terminal normal
-                    setTimeout(() => {
-                        glitchBgs.style.display = "none";
-                        gsap.to(".preloader-content", { opacity: 1, duration: 0.3 });
-                        preloaderTl.play();
-                    }, 4000);
+                    gsap.to(".preloader-content", { opacity: 1, duration: 0.3 });
+                    preloaderTl.play();
                 }
             });
         });
@@ -490,6 +439,12 @@ document.addEventListener("DOMContentLoaded", () => {
             category: "UI UX DESIGN PLANNING",
             imgSrc: "assets/ui_ux.png",
             desc: "Perancangan desain User Interface & User Experience yang mengutamakan tingkat aksesibilitas (accessibility) tinggi dan navigasi logis, dimulai dari user research, pembuatan wireframe, hingga hasil akhir interaktif (prototype). Desain dibuat bersih dan user-focused."
+        },
+        {
+            title: "PERSONAL PORTFOLIO",
+            category: "FRONTEND WEB DEVELOPMENT",
+            imgSrc: "assets/dimas.jpeg",
+            desc: "Pengembangan website portofolio pribadi eksklusif berkonsep premium dengan tema terang (Light Mode Canvas Cloud), transisi mulus menggunakan GSAP ScrollTrigger, dan desain responsif yang minimalis. Dibuat secara native menggunakan HTML, CSS, dan Javascript murni tanpa framework untuk menonjolkan kreativitas antarmuka."
         }
     ];
 
