@@ -1359,11 +1359,12 @@ button:hover,
     }
 
     .hero-bg-text {
-        font-size: 5.5rem;
-        top: 20%;
-        left: 0%;
-        width: 100%;
+        font-size: 25vw;
+        top: 30%;
+        left: 50%;
+        width: 100vw;
         text-align: center;
+        /* `transform: translate(-50%, -50%)` is inherited from the global class, works cleanly with GSAP */
     }
 
     .section-header {
