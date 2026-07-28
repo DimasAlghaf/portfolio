@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Kunci scroll saat preloader (hanya jika elemennya ada)
         if (preloaderEl) {
             document.body.style.overflow = 'hidden';
+            if (typeof lenis !== 'undefined') lenis.stop();
         }
     }
 
@@ -73,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         paused: true,
         onComplete: () => {
             document.body.style.overflow = ''; // Lepas scroll
+            if (typeof lenis !== 'undefined') lenis.start();
             // Hilangkan preloader box dari DOM visual
             gsap.to(".system-preloader", {
                 opacity: 0,

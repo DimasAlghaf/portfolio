@@ -1,13 +1,15 @@
 :root {
-    --bg-primary: #EDF1F5;
-    /* Canvas Cloud */
-    --bg-secondary: #FFFFFF;
-    --accent: #0145F2;
-    /* Electric Blue */
-    --accent-dark: #00227a;
-    --text-primary: #0a0c10;
-    --text-secondary: #5a667b;
-    --border: #d0d7e5;
+    --bg-primary-grad-1: #051F20;
+    --bg-primary-grad-2: #0B2B26;
+    --bg-primary-grad-3: #163832;
+    --bg-secondary: rgba(218, 241, 222, 0.05);
+    /* Transparent card background */
+    --accent: #8EB69B;
+    /* Bright accent for visibility */
+    --accent-dark: #235347;
+    --text-primary: #DAF1DE;
+    --text-secondary: rgba(218, 241, 222, 0.65);
+    --border: rgba(142, 182, 155, 0.2);
 
     --font-bebas: 'Bebas Neue', sans-serif;
     --font-caveat: 'Caveat', cursive;
@@ -22,7 +24,9 @@
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-primary);
+    background: linear-gradient(135deg, var(--bg-primary-grad-1), var(--bg-primary-grad-2), var(--bg-primary-grad-3));
+    background-size: cover;
+    background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -794,9 +798,220 @@ a {
     color: var(--text-primary);
     background-color: var(--bg-secondary);
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: 8px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     outline: none;
+    resize: none;
+    /* Menghilangkan ikon resize di ujung kanan bawah */
+}
+
+.submit-btn {
+    width: max-content;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: var(--text-primary);
+    color: var(--accent-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    border: 1px solid var(--text-primary);
+}
+
+.submit-btn .icon {
+    width: 25px;
+    height: 25px;
+    border: 1px solid var(--accent-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-dark);
+    color: var(--text-primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover .icon {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+/* Gradient Button Animation Properties */
+@property --pos-x {
+    syntax: '<percentage>';
+    initial-value: 11.14%;
+    inherits: false;
+}
+
+@property --pos-y {
+    syntax: '<percentage>';
+    initial-value: 140%;
+    inherits: false;
+}
+
+@property --spread-x {
+    syntax: '<percentage>';
+    initial-value: 150%;
+    inherits: false;
+}
+
+@property --spread-y {
+    syntax: '<percentage>';
+    initial-value: 180.06%;
+    inherits: false;
+}
+
+@property --btn-color-1 {
+    syntax: '<color>';
+    initial-value: #051F20;
+    inherits: false;
+}
+
+@property --btn-color-2 {
+    syntax: '<color>';
+    initial-value: #0B2B26;
+    inherits: false;
+}
+
+@property --btn-color-3 {
+    syntax: '<color>';
+    initial-value: #163832;
+    inherits: false;
+}
+
+@property --btn-color-4 {
+    syntax: '<color>';
+    initial-value: #235347;
+    inherits: false;
+}
+
+@property --btn-color-5 {
+    syntax: '<color>';
+    initial-value: #8EB69B;
+    inherits: false;
+}
+
+@property --border-angle {
+    syntax: '<angle>';
+    initial-value: 20deg;
+    inherits: true;
+}
+
+@property --border-color-1 {
+    syntax: '<color>';
+    initial-value: rgba(142, 182, 155, 0.2);
+    inherits: true;
+}
+
+@property --border-color-2 {
+    syntax: '<color>';
+    initial-value: rgba(142, 182, 155, 0.75);
+    inherits: true;
+}
+
+@property --stop-1 {
+    syntax: '<percentage>';
+    initial-value: 37.35%;
+    inherits: false;
+}
+
+@property --stop-2 {
+    syntax: '<percentage>';
+    initial-value: 61.36%;
+    inherits: false;
+}
+
+@property --stop-3 {
+    syntax: '<percentage>';
+    initial-value: 78.42%;
+    inherits: false;
+}
+
+@property --stop-4 {
+    syntax: '<percentage>';
+    initial-value: 89.52%;
+    inherits: false;
+}
+
+@property --stop-5 {
+    syntax: '<percentage>';
+    initial-value: 100%;
+    inherits: false;
+}
+
+.gradient-btn-animated {
+    position: relative;
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2.5rem;
+    border-radius: 11px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    background: radial-gradient(var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+            var(--btn-color-1) var(--stop-1),
+            var(--btn-color-2) var(--stop-2),
+            var(--btn-color-3) var(--stop-3),
+            var(--btn-color-4) var(--stop-4),
+            var(--btn-color-5) var(--stop-5));
+    transition:
+        --pos-x 0.5s, --pos-y 0.5s, --spread-x 0.5s, --spread-y 0.5s,
+        --btn-color-1 0.5s, --btn-color-2 0.5s, --btn-color-3 0.5s, --btn-color-4 0.5s, --btn-color-5 0.5s,
+        --border-angle 0.5s, --border-color-1 0.5s, --border-color-2 0.5s,
+        --stop-1 0.5s, --stop-2 0.5s, --stop-3 0.5s, --stop-4 0.5s, --stop-5 0.5s;
+    border: none;
+}
+
+.gradient-btn-animated::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(var(--border-angle), var(--border-color-1), var(--border-color-2));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.gradient-btn-animated:hover {
+    --pos-x: 0%;
+    --pos-y: 91.51%;
+    --spread-x: 120.24%;
+    --spread-y: 103.18%;
+    /* Hover brings lighter greens forward */
+    --btn-color-1: #163832;
+    --btn-color-2: #235347;
+    --btn-color-3: #8EB69B;
+    --btn-color-4: #DAF1DE;
+    --btn-color-5: #051F20;
+    --border-angle: 190deg;
+    --border-color-1: rgba(218, 241, 222, 0.2);
+    --border-color-2: rgba(218, 241, 222, 0.8);
+    --stop-1: 0%;
+    --stop-2: 8.8%;
+    --stop-3: 21.44%;
+    --stop-4: 71.34%;
+    --stop-5: 85.76%;
+    color: #ffffff;
 }
 
 .form-input::placeholder {
@@ -972,8 +1187,8 @@ button:hover,
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--bg-primary);
-    /* Match background */
+    background-color: var(--bg-primary-grad-1);
+    /* Replaces old solid background */
     z-index: 10005;
     /* higher than curtain */
     display: flex;
