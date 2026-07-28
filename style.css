@@ -1265,30 +1265,7 @@ button:hover,
 }
 
 .btn-boot {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 12px 24px;
-    font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 2px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    font-size: 1rem;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(1, 69, 242, 0.15);
-    transform: translateY(0);
-}
-
-.btn-boot:hover {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 10px 30px rgba(1, 69, 242, 0.4);
-    transform: translateY(-5px);
-}
-
-.btn-boot:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 8px rgba(1, 69, 242, 0.3);
+    /* Styles are now handled entirely by .gradient-btn-animated class injected into HTML */
 }
 
 /* --- Hover Glitch & Profile Glitch Effect --- */
